@@ -11,7 +11,13 @@ let currentPoints1 = document.querySelector('#current--0')
 const score2 = document.querySelector('#score--1')
 let currentPoints2 = document.querySelector('#current--1')
 
+function displayDiceImage(source){
+  diceImage.src = source
+}
 
+function addToCurrentPoints(value){
+  currentPoints1.textContent = Number(currentPoints1.textContent) + value
+}
 
 rollDice.addEventListener('click',function(){
   let diceNumber = Math.abs(Math.round(Math.random() * 10) - 4)
@@ -19,32 +25,32 @@ rollDice.addEventListener('click',function(){
   if(diceNumber !== 0){
     switch(diceNumber){
       case 1:
-        diceImage.src = 'img/dice-1.png'
+        displayDiceImage('img/dice-1.png')
         currentPoints1.textContent = 0
         break
       case 2:
-        diceImage.src = 'img/dice-2.png'
-        currentPoints1.textContent = Number(currentPoints1.textContent) + 2
+        displayDiceImage('img/dice-2.png')
+        addToCurrentPoints(2)
         
         break
       case 3:
-        diceImage.src = 'img/dice-3.png'
-        currentPoints1.textContent = Number(currentPoints1.textContent) + 3
+        displayDiceImage('img/dice-3.png')
+        addToCurrentPoints(3) 
         
         break
       case 4:
-        diceImage.src = 'img/dice-4.png'
-        currentPoints1.textContent = Number(currentPoints1.textContent) + 4
+        displayDiceImage('img/dice-4.png')
+        addToCurrentPoints(4)
       
         break
       case 5:
-        diceImage.src = 'img/dice-5.png'
-        currentPoints1.textContent = Number(currentPoints1.textContent) + 5
+        displayDiceImage('img/dice-5.png')
+        addToCurrentPoints(5)
      
         break
       case 6:
-        diceImage.src = 'img/dice-6.png'
-        currentPoints1.textContent = Number(currentPoints1.textContent) + 6
+        displayDiceImage('img/dice-6.png') 
+        addToCurrentPoints(6)
        
         break
     }
