@@ -12,6 +12,7 @@
 <br>
 
 ## 🎈 About the game
+<br>
 
 Pig Game is a dice game in which the first who scores 100 or more points, wins.
 Each turn, you can roll a die until a 1 is rolled (and you lose your turn) or you can hold your current score:
@@ -21,10 +22,12 @@ Roll - If the player rolls a
 Hold - The current total is added to your score and the turn changes.
 
 ## 💻 Game preview
+<br>
 
 ![game preview](https://github.com/Clara-Pacheco/pig-game/blob/main/img/game-preview.png)
 
 ## ➿ Pig game logic in flowchart
+<br>
 
 ![flowchart](https://github.com/Clara-Pacheco/pig-game/blob/main/img/pig-game-flowchart.png)
 
