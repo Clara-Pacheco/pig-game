@@ -43,4 +43,13 @@ const holdBtn = document.querySelector('.btn--hold')
 
 holdBtn.addEventListener('click',function(){
   document.querySelector('#score--0').textContent = document.querySelector('#current--0').textContent
+  if (document.querySelector('#score--0').textContent >= 100){
+    console.log('You win!')
+  }
+})
+
+const newGameBtn = document.querySelector('.btn--new')
+
+newGameBtn.addEventListener('click',function(){
+  window.location.reload(true)
 })
