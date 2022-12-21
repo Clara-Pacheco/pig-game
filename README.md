@@ -23,3 +23,8 @@ Hold - The current total is added to your score and the turn changes.
 ## 💻 Game preview
 
 ![game preview](https://github.com/Clara-Pacheco/pig-game/blob/main/img/game-preview.png)
+
+## ➿ Pig game logic in flowchart
+
+![flowchart](https://github.com/Clara-Pacheco/pig-game/blob/main/img/pig-game-flowchart.png)
+
