@@ -19,8 +19,16 @@ function addToCurrentPoints(value){
   currentPoints1.textContent = Number(currentPoints1.textContent) + value
 }
 
+// Setting initial points to both players as 0 and
+// dice display to none
+
+currentPoints1.textContent = 0
+currentPoints2.textContent = 0
+diceImage.style.display = 'none'
+
 rollDice.addEventListener('click',function(){
   let diceNumber = Math.abs(Math.round(Math.random() * 10) - 4)
+  diceImage.style.display = 'block'
   console.log(diceNumber)
   if(diceNumber !== 0){
     switch(diceNumber){
@@ -71,5 +79,5 @@ const newGameBtn = document.querySelector('.btn--new')
 
 newGameBtn.addEventListener('click',function(){
   window.location.reload(true)
-  diceImage.classList.add('dice-hidden')
+  
 })
