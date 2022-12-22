@@ -34,6 +34,14 @@ function ifDiceNumber1(activePlayer){
  
 }
 
+function activeBackground(activePlayer){
+  document.querySelector(`.player--${activePlayer}`).classList.add('player--active')
+}
+
+function removeBackground(activePlayer){
+  document.querySelector(`.player--${activePlayer}`).classList.remove('player--active')
+}
+
 // Starting conditions
 
 // Setting initial points to both players as 0 and
@@ -54,8 +62,12 @@ rollDice.addEventListener('click',function(){
         ifDiceNumber1(activePlayer)
         if(activePlayer == 0){
           activePlayer = 1
+          activeBackground(1)
+          removeBackground(0)
         }else{
           activePlayer = 0
+          activeBackground(0)
+          removeBackground(1)
         }
         break
       case 2:
@@ -94,8 +106,12 @@ holdBtn.addEventListener('click',function(){
   document.querySelector(`#score--${activePlayer}`).textContent = document.querySelector(`#current--${activePlayer}`).textContent
   if(activePlayer == 0){
     activePlayer = 1
+    activeBackground(1)
+    removeBackground(0)
   }else{
     activePlayer = 0
+    activeBackground(0)
+    removeBackground(1)
   }
   if (document.querySelector(`#score--${activePlayer}`).textContent >= 100){
     console.log('You win!')
