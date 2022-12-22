@@ -126,7 +126,7 @@ holdBtn.addEventListener('click',function(){
   if(playing){
   document.querySelector(`#score--${activePlayer}`).textContent = Number(document.querySelector(`#score--${activePlayer}`).textContent) + Number(document.querySelector(`#current--${activePlayer}`).textContent)
   document.querySelector(`#current--${activePlayer}`).textContent = 0
-  if(document.querySelector(`#score--${activePlayer}`).textContent >=10){
+  if(document.querySelector(`#score--${activePlayer}`).textContent >=100){
     playing = false
     document.querySelector(`.player--${activePlayer}`).classList.remove('player--active')
     document.querySelector(`.player--${activePlayer}`).classList.add('player--winner')
