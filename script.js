@@ -20,6 +20,10 @@ const scores = [0,0]
 
 let activePlayer = 0; // the game starts with player number 1
 
+// ============ Create a variable to playing game or not ===========
+
+let playing =  true
+
 function displayDiceImage(source){
   diceImage.src = source
 }
@@ -65,7 +69,7 @@ diceImage.style.display = 'none'
 
 
 rollDice.addEventListener('click',function(){
- 
+if(playing){
   let diceNumber = Math.abs(Math.ceil(Math.random() * 10) - 4)
   console.log(diceNumber)
   if(diceNumber !== 0){
@@ -113,19 +117,22 @@ rollDice.addEventListener('click',function(){
     }
     
   }
-
+ }
 })
 
 const holdBtn = document.querySelector('.btn--hold')
 
 holdBtn.addEventListener('click',function(){
- 
-  document.querySelector(`#score--${activePlayer}`).textContent = document.querySelector(`#current--${activePlayer}`).textContent
+  if(playing){
+  document.querySelector(`#score--${activePlayer}`).textContent = Number(document.querySelector(`#score--${activePlayer}`).textContent) + Number(document.querySelector(`#current--${activePlayer}`).textContent)
   document.querySelector(`#current--${activePlayer}`).textContent = 0
-  if(document.querySelector(`#score--${activePlayer}`).textContent >=100){
-    console.log('You win!')
+  if(document.querySelector(`#score--${activePlayer}`).textContent >=10){
+    playing = false
+    document.querySelector(`.player--${activePlayer}`).classList.remove('player--active')
+    document.querySelector(`.player--${activePlayer}`).classList.add('player--winner')
+    diceImage.style.display = 'none'
     alert('Congratulations! You won the game! 🎉')
-    newGame()
+    
   }else{
     switchPlayer()
     // if(activePlayer == 0){
@@ -138,9 +145,8 @@ holdBtn.addEventListener('click',function(){
     //   removeBackground(1)
     // }
   }
-    
+ } 
 })
-
 
 const newGameBtn = document.querySelector('.btn--new')
 
