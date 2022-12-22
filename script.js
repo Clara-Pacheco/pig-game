@@ -42,6 +42,13 @@ function removeBackground(activePlayer){
   document.querySelector(`.player--${activePlayer}`).classList.remove('player--active')
 }
 
+function winner(activePlayer){
+  if(document.querySelector(`#score--${activePlayer}`).textContent >= 10){
+    console.log('You win!')
+    newGame()
+  }
+}
+
 // Starting conditions
 
 // Setting initial points to both players as 0 and
@@ -51,7 +58,9 @@ currentPoints1.textContent = 0
 currentPoints2.textContent = 0
 diceImage.style.display = 'none'
 
+
 rollDice.addEventListener('click',function(){
+ 
   let diceNumber = Math.abs(Math.round(Math.random() * 10) - 4)
   console.log(diceNumber)
   if(diceNumber !== 0){
@@ -73,7 +82,7 @@ rollDice.addEventListener('click',function(){
       case 2:
         displayDiceImage('img/dice-2.png')
         addToCurrentPoints(2)
-        
+       
         break
       case 3:
         displayDiceImage('img/dice-3.png')
@@ -83,12 +92,12 @@ rollDice.addEventListener('click',function(){
       case 4:
         displayDiceImage('img/dice-4.png')
         addToCurrentPoints(4)
-      
+        
         break
       case 5:
         displayDiceImage('img/dice-5.png')
         addToCurrentPoints(5)
-     
+        
         break
       case 6:
         displayDiceImage('img/dice-6.png') 
@@ -98,11 +107,13 @@ rollDice.addEventListener('click',function(){
     }
     
   }
+
 })
 
 const holdBtn = document.querySelector('.btn--hold')
 
 holdBtn.addEventListener('click',function(){
+ 
   document.querySelector(`#score--${activePlayer}`).textContent = document.querySelector(`#current--${activePlayer}`).textContent
   if(activePlayer == 0){
     activePlayer = 1
@@ -113,14 +124,14 @@ holdBtn.addEventListener('click',function(){
     activeBackground(0)
     removeBackground(1)
   }
-  if (document.querySelector(`#score--${activePlayer}`).textContent >= 100){
-    console.log('You win!')
-  }
+  
 })
+
 
 const newGameBtn = document.querySelector('.btn--new')
 
-newGameBtn.addEventListener('click',function(){
+function newGame(){
   window.location.reload(true)
-  
-})
+}
+
+newGameBtn.addEventListener('click',newGame)
