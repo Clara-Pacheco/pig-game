@@ -1,3 +1,4 @@
+// Selecting elements
 const rollDice = document.querySelector('.btn--roll')
 let diceImage = document.querySelector('.dice')
 
@@ -11,13 +12,29 @@ let currentPoints1 = document.querySelector('#current--0')
 const score2 = document.querySelector('#score--1')
 let currentPoints2 = document.querySelector('#current--1')
 
+// ============ Storing both scores in an array =============
+
+const scores = [0,0]
+
+// ============ Create a variable to active player ===========
+
+let activePlayer = 0; // the game starts with player number 1
+
 function displayDiceImage(source){
   diceImage.src = source
 }
 
 function addToCurrentPoints(value){
-  currentPoints1.textContent = Number(currentPoints1.textContent) + value
+  document.querySelector(`#current--${activePlayer}`).textContent = Number(document.querySelector(`#current--${activePlayer}`).textContent) + value
 }
+
+function ifDiceNumber1(activePlayer){
+  document.querySelector(`#current--${activePlayer}`).textContent = 0
+  document.querySelector(`#score--${activePlayer}`).textContent = 0
+ 
+}
+
+// Starting conditions
 
 // Setting initial points to both players as 0 and
 // dice display to none
@@ -34,7 +51,12 @@ rollDice.addEventListener('click',function(){
     switch(diceNumber){
       case 1:
         displayDiceImage('img/dice-1.png')
-        currentPoints1.textContent = 0
+        ifDiceNumber1(activePlayer)
+        if(activePlayer == 0){
+          activePlayer = 1
+        }else{
+          activePlayer = 0
+        }
         break
       case 2:
         displayDiceImage('img/dice-2.png')
@@ -69,8 +91,13 @@ rollDice.addEventListener('click',function(){
 const holdBtn = document.querySelector('.btn--hold')
 
 holdBtn.addEventListener('click',function(){
-  score1.textContent = currentPoints1.textContent
-  if (score1.textContent >= 100){
+  document.querySelector(`#score--${activePlayer}`).textContent = document.querySelector(`#current--${activePlayer}`).textContent
+  if(activePlayer == 0){
+    activePlayer = 1
+  }else{
+    activePlayer = 0
+  }
+  if (document.querySelector(`#score--${activePlayer}`).textContent >= 100){
     console.log('You win!')
   }
 })
