@@ -117,6 +117,7 @@ holdBtn.addEventListener('click',function(){
   document.querySelector(`#score--${activePlayer}`).textContent = document.querySelector(`#current--${activePlayer}`).textContent
   if(document.querySelector(`#score--${activePlayer}`).textContent >=10){
     console.log('You win!')
+    alert('Congratulations! You won the game! 🎉')
     newGame()
   }else{
     if(activePlayer == 0){
