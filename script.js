@@ -45,9 +45,9 @@ diceImage.style.display = 'none'
 
 rollDice.addEventListener('click',function(){
   let diceNumber = Math.abs(Math.round(Math.random() * 10) - 4)
-  diceImage.style.display = 'block'
   console.log(diceNumber)
   if(diceNumber !== 0){
+    diceImage.style.display = 'block'
     switch(diceNumber){
       case 1:
         displayDiceImage('img/dice-1.png')
