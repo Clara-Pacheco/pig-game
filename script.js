@@ -42,10 +42,15 @@ function removeBackground(activePlayer){
   document.querySelector(`.player--${activePlayer}`).classList.remove('player--active')
 }
 
-function winner(activePlayer){
-  if(document.querySelector(`#score--${activePlayer}`).textContent >= 10){
-    console.log('You win!')
-    newGame()
+function switchPlayer(){
+  if(activePlayer == 0){
+    activePlayer = 1
+    activeBackground(1)
+    removeBackground(0)
+  }else{
+    activePlayer = 0
+    activeBackground(0)
+    removeBackground(1)
   }
 }
 
@@ -69,15 +74,16 @@ rollDice.addEventListener('click',function(){
       case 1:
         displayDiceImage('img/dice-1.png')
         ifDiceNumber1(activePlayer)
-        if(activePlayer == 0){
-          activePlayer = 1
-          activeBackground(1)
-          removeBackground(0)
-        }else{
-          activePlayer = 0
-          activeBackground(0)
-          removeBackground(1)
-        }
+        switchPlayer()
+        // if(activePlayer == 0){
+        //   activePlayer = 1
+        //   activeBackground(1)
+        //   removeBackground(0)
+        // }else{
+        //   activePlayer = 0
+        //   activeBackground(0)
+        //   removeBackground(1)
+        // }
         break
       case 2:
         displayDiceImage('img/dice-2.png')
@@ -120,15 +126,16 @@ holdBtn.addEventListener('click',function(){
     alert('Congratulations! You won the game! 🎉')
     newGame()
   }else{
-    if(activePlayer == 0){
-      activePlayer = 1
-      activeBackground(1)
-      removeBackground(0)
-    }else{
-      activePlayer = 0
-      activeBackground(0)
-      removeBackground(1)
-    }
+    switchPlayer()
+    // if(activePlayer == 0){
+    //   activePlayer = 1
+    //   activeBackground(1)
+    //   removeBackground(0)
+    // }else{
+    //   activePlayer = 0
+    //   activeBackground(0)
+    //   removeBackground(1)
+    // }
   }
     
 })
