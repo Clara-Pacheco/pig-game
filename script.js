@@ -121,6 +121,7 @@ const holdBtn = document.querySelector('.btn--hold')
 holdBtn.addEventListener('click',function(){
  
   document.querySelector(`#score--${activePlayer}`).textContent = document.querySelector(`#current--${activePlayer}`).textContent
+  document.querySelector(`#current--${activePlayer}`).textContent = 0
   if(document.querySelector(`#score--${activePlayer}`).textContent >=100){
     console.log('You win!')
     alert('Congratulations! You won the game! 🎉')
