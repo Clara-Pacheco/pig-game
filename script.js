@@ -61,7 +61,7 @@ diceImage.style.display = 'none'
 
 rollDice.addEventListener('click',function(){
  
-  let diceNumber = Math.abs(Math.round(Math.random() * 10) - 4)
+  let diceNumber = Math.abs(Math.ceil(Math.random() * 10) - 4)
   console.log(diceNumber)
   if(diceNumber !== 0){
     diceImage.style.display = 'block'
@@ -115,16 +115,21 @@ const holdBtn = document.querySelector('.btn--hold')
 holdBtn.addEventListener('click',function(){
  
   document.querySelector(`#score--${activePlayer}`).textContent = document.querySelector(`#current--${activePlayer}`).textContent
-  if(activePlayer == 0){
-    activePlayer = 1
-    activeBackground(1)
-    removeBackground(0)
+  if(document.querySelector(`#score--${activePlayer}`).textContent >=10){
+    console.log('You win!')
+    newGame()
   }else{
-    activePlayer = 0
-    activeBackground(0)
-    removeBackground(1)
+    if(activePlayer == 0){
+      activePlayer = 1
+      activeBackground(1)
+      removeBackground(0)
+    }else{
+      activePlayer = 0
+      activeBackground(0)
+      removeBackground(1)
+    }
   }
-  
+    
 })
 
 
